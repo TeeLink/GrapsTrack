@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -16,6 +17,11 @@ namespace GrapsTrack.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string Name { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
