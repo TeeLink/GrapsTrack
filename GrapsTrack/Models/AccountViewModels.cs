@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace GrapsTrack.Models
@@ -108,5 +109,44 @@ namespace GrapsTrack.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+    }
+
+    public class PerformerVm
+    {
+        public int Id { get; set; }
+        public int EventId { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string InfoLink { get; set; }
+        public IEnumerable<EventVm> PossibleEvents { get; set; } = new List<EventVm>();
+        
+    }
+
+    public class CreatePerformerVm
+    {
+        public int Id { get; set; }
+        public int EventId { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string InfoLink { get; set; }
+    }
+
+    public class EventVm
+    {
+        public int Id { get; set; }
+        public int PerformerId { get; set; }
+        [Required]
+        public string Title { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
+        [Required]
+        public string City { get; set; }
+        [Required]
+        public string State { get; set; }
+        public Promotion Promotion { get; set; }
+
+        public IEnumerable<PerformerVm> PossiblePerformers { get; set; } = new List<PerformerVm>();
     }
 }

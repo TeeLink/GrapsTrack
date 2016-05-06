@@ -11,14 +11,13 @@ namespace GrapsTrack.Models
         public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }
-        [Required]
         public string LastName { get; set; }
+        public string InfoLink { get; set; }
         public enum Gender 
         {
             Male,
             Female
         }
-
-        List<Event> Events = new List<Event>();
+        public virtual ICollection<Event> Events { get; set; } = new List<Event>();
     }
 }

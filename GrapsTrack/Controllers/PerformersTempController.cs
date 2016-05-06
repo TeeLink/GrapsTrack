@@ -4,134 +4,135 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using GrapsTrack.Models;
 
 namespace GrapsTrack.Controllers
 {
-    public class EventsTempController : Controller
+    public class PerformersTempController : Controller
     {
         private GrapsTrackDbContext db = new GrapsTrackDbContext();
+
 
         [HttpGet]
         public ActionResult Index(string searchString)
         {
-            var events = from e in db.Events
-                         select e;
+            var performers = from e in db.Performers
+                select e;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                events = events.Where(s => s.Title.StartsWith(searchString));
+                performers = performers.Where(s => s.FirstName.Contains(searchString) || s.LastName.Contains(searchString));
+                
             }
 
-            return View(events);
-        }
+            return View(performers);
 
+        }
         [HttpPost]
         public string Index(FormCollection fc, string searchString)
         {
             return "<h3> From [HttpPost]Index: " + searchString + "</h3>";
         }
 
-        // GET: EventsTemp
+        // GET: PerformersTemp
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            return View(db.Performers.ToList());
         }
 
-        // GET: EventsTemp/Details/5
+        // GET: PerformersTemp/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
+            Performer performer = db.Performers.Find(id);
+            if (performer == null)
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            return View(performer);
         }
 
-        // GET: EventsTemp/Create
+        // GET: PerformersTemp/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: EventsTemp/Create
+        // POST: PerformersTemp/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Date,City,State")] Event @event)
+        public ActionResult Create( Performer performer)
         {
             if (ModelState.IsValid)
             {
-                db.Events.Add(@event);
+                db.Performers.Add(performer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(@event);
+            return View(performer);
         }
 
-        // GET: EventsTemp/Edit/5
+        // GET: PerformersTemp/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
+            Performer performer = db.Performers.Find(id);
+            if (performer == null)
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            return View(performer);
         }
 
-        // POST: EventsTemp/Edit/5
+        // POST: PerformersTemp/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Date,City,State")] Event @event)
+        public ActionResult Edit( Performer performer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(@event).State = EntityState.Modified;
+                db.Entry(performer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(@event);
+            return View(performer);
         }
 
-        // GET: EventsTemp/Delete/5
+        // GET: PerformersTemp/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
+            Performer performer = db.Performers.Find(id);
+            if (performer == null)
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            return View(performer);
         }
 
-        // POST: EventsTemp/Delete/5
+        // POST: PerformersTemp/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Event @event = db.Events.Find(id);
-            db.Events.Remove(@event);
+            Performer performer = db.Performers.Find(id);
+            db.Performers.Remove(performer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

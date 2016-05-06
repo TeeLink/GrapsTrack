@@ -171,6 +171,8 @@
     <Compile Include="Controllers\EventsTempController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PerformersController.cs" />
+    <Compile Include="Controllers\PerformersTempController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,6 +180,26 @@
     <Compile Include="Migrations\201605041611599_events.cs" />
     <Compile Include="Migrations\201605041611599_events.Designer.cs">
       <DependentUpon>201605041611599_events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605041618173_performers.cs" />
+    <Compile Include="Migrations\201605041618173_performers.Designer.cs">
+      <DependentUpon>201605041618173_performers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605041627216_perfupdate.cs" />
+    <Compile Include="Migrations\201605041627216_perfupdate.Designer.cs">
+      <DependentUpon>201605041627216_perfupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605041657245_perfedit.cs" />
+    <Compile Include="Migrations\201605041657245_perfedit.Designer.cs">
+      <DependentUpon>201605041657245_perfedit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605051903341_realcontroller.cs" />
+    <Compile Include="Migrations\201605051903341_realcontroller.Designer.cs">
+      <DependentUpon>201605051903341_realcontroller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605061826043_controller2.cs" />
+    <Compile Include="Migrations\201605061826043_controller2.Designer.cs">
+      <DependentUpon>201605061826043_controller2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -244,16 +266,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Events\Create.cshtml" />
-    <Content Include="Views\Events\Delete.cshtml" />
-    <Content Include="Views\Events\Details.cshtml" />
-    <Content Include="Views\Events\Edit.cshtml" />
-    <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\EventsTemp\Create.cshtml" />
     <Content Include="Views\EventsTemp\Delete.cshtml" />
     <Content Include="Views\EventsTemp\Details.cshtml" />
     <Content Include="Views\EventsTemp\Edit.cshtml" />
     <Content Include="Views\EventsTemp\Index.cshtml" />
+    <Content Include="Views\PerformersTemp\Create.cshtml" />
+    <Content Include="Views\PerformersTemp\Delete.cshtml" />
+    <Content Include="Views\PerformersTemp\Details.cshtml" />
+    <Content Include="Views\PerformersTemp\Edit.cshtml" />
+    <Content Include="Views\PerformersTemp\Index.cshtml" />
+    <Content Include="Views\Performers\Index.cshtml" />
+    <Content Include="Views\Performers\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -269,6 +293,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605041611599_events.resx">
       <DependentUpon>201605041611599_events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605041618173_performers.resx">
+      <DependentUpon>201605041618173_performers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605041627216_perfupdate.resx">
+      <DependentUpon>201605041627216_perfupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605041657245_perfedit.resx">
+      <DependentUpon>201605041657245_perfedit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605051903341_realcontroller.resx">
+      <DependentUpon>201605051903341_realcontroller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605061826043_controller2.resx">
+      <DependentUpon>201605061826043_controller2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
