@@ -1,0 +1,29 @@
+﻿@model GrapsTrack.Models.Performer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Performer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+            <h3>
+                @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+            </h3>
+        
+
+        <td>
+            <a href="@Model.InfoLink">Profile</a>
+        </td>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

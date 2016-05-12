@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\EventsTempController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -200,6 +201,18 @@
     <Compile Include="Migrations\201605061826043_controller2.cs" />
     <Compile Include="Migrations\201605061826043_controller2.Designer.cs">
       <DependentUpon>201605061826043_controller2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605062051564_RemovedVMModel.cs" />
+    <Compile Include="Migrations\201605062051564_RemovedVMModel.Designer.cs">
+      <DependentUpon>201605062051564_RemovedVMModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605101646449_eventscontroller.cs" />
+    <Compile Include="Migrations\201605101646449_eventscontroller.Designer.cs">
+      <DependentUpon>201605101646449_eventscontroller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605102030331_eventscontroller1.cs" />
+    <Compile Include="Migrations\201605102030331_eventscontroller1.Designer.cs">
+      <DependentUpon>201605102030331_eventscontroller1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -278,6 +291,11 @@
     <Content Include="Views\PerformersTemp\Index.cshtml" />
     <Content Include="Views\Performers\Index.cshtml" />
     <Content Include="Views\Performers\Create.cshtml" />
+    <Content Include="Views\Performers\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Performers\Details.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -308,6 +326,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605061826043_controller2.resx">
       <DependentUpon>201605061826043_controller2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605062051564_RemovedVMModel.resx">
+      <DependentUpon>201605062051564_RemovedVMModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605101646449_eventscontroller.resx">
+      <DependentUpon>201605101646449_eventscontroller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605102030331_eventscontroller1.resx">
+      <DependentUpon>201605102030331_eventscontroller1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

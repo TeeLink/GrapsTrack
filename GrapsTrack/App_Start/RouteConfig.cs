@@ -16,7 +16,7 @@ namespace GrapsTrack
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "eventstemp", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "events", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

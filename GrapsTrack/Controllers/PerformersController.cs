@@ -16,27 +16,27 @@ namespace GrapsTrack.Controllers
         {
             var performer = db.Performers.ToList().Select(x => new PerformerVm()
             {
+                Id = x.Id,
                 FirstName = x.FirstName,
                 LastName = x.LastName,
-                InfoLink = x.InfoLink,
+                InfoLink = x.InfoLink
 
             });
 
             return View(performer);
         }
 
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var model = new CreatePerformerVm
+            {
+                Events = new SelectList(db.Events.ToList(), "Id", "Title")
+            };
+            return View(model);
         }
 
-        [HttpPut]
+        [HttpPost]
         public ActionResult Create(CreatePerformerVm model)
         {
             if (ModelState.IsValid)
@@ -46,9 +46,13 @@ namespace GrapsTrack.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     InfoLink = model.InfoLink,
-                    
                 };
+
                 db.Performers.Add(createperformer);
+
+                var existingEvent = db.Events.Find(model.SelectedEventId);
+                createperformer.Events.Add(existingEvent);
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -56,24 +60,6 @@ namespace GrapsTrack.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult Create(PerformerVm newPerformer)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.PerformerVMs.Add(newPerformer);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-
-        //    }
-        //    else
-        //    {
-        //        return (newPerformer);
-        //    }
-           
-        //}
-
-        // GET: Performers/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
@@ -86,13 +72,39 @@ namespace GrapsTrack.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PerformerVm performer = db.PerformerVMs.Find(id);
+            var performer = db.Performers.Find(id);
+            if (performer == null)
+            {
+                return HttpNotFound();
+            }
+            return View();
+        }
+
+
+        public ActionResult Details(int? id)
+        {
+            Performer performer = db.Performers.Find(id);
             if (performer == null)
             {
                 return HttpNotFound();
             }
             return View(performer);
         }
+
+        //public ActionResult Details(int ? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+
+        //    Performer performer = db.Performers.Find(id);
+        //    if (performer == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(performer);
+        //}
 
         public ActionResult Delete(int id)
         {

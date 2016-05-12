@@ -21,5 +21,5 @@ public class GrapsTrackDbContext : DbContext
 
     public System.Data.Entity.DbSet<GrapsTrack.Models.Performer> Performers { get; set; }
 
-    public System.Data.Entity.DbSet<GrapsTrack.Models.PerformerVm> PerformerVMs { get; set; }
+    public System.Data.Entity.DbSet<GrapsTrack.Models.EventVm> EventVms { get; set; }
 }

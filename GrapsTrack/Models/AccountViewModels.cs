@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace GrapsTrack.Models
 {
@@ -78,7 +79,7 @@ namespace GrapsTrack.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -97,7 +98,7 @@ namespace GrapsTrack.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }
@@ -120,7 +121,6 @@ namespace GrapsTrack.Models
         public string LastName { get; set; }
         public string InfoLink { get; set; }
         public IEnumerable<EventVm> PossibleEvents { get; set; } = new List<EventVm>();
-        
     }
 
     public class CreatePerformerVm
@@ -131,6 +131,55 @@ namespace GrapsTrack.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string InfoLink { get; set; }
+        public SelectList Events { get; set; }
+
+        public int SelectedEventId { get; set; }
+    }
+
+    public class CreateEventVm
+    {
+        public int Id { get; set; }
+        public int PerformerId { get; set; }
+        public string Title { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public DateTime Date { get; set; }
+        public SelectList Performers { get; set; }
+
+        public int SelectedPerformerId { get; set; }
+    }
+
+    public class EditPerformerVm
+    {
+        public int Id { get; set; }
+        public int EventId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string InfoLink { get; set; }
+        
+    }
+
+    public class DetailPerformerVm
+    {
+        public int Id { get; set; }
+        public int EventId { get; set; }
+        [Required]
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string InfoLink { get; set; }
+    }
+
+    public class DetailEventVm
+    {
+        public int Id { get; set; }
+        public int PerformerId { get; set; }
+        public string Title { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public DateTime Date { get; set; }
+        public SelectList Performers { get; set; }
+
+        public int SelectedPerformerId { get; set; }
     }
 
     public class EventVm

@@ -49,6 +49,7 @@ namespace GrapsTrack.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Performer performer = db.Performers.Find(id);
             if (performer == null)
             {
