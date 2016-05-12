@@ -174,45 +174,14 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PerformersController.cs" />
     <Compile Include="Controllers\PerformersTempController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GrapsTrackDbContext.cs" />
-    <Compile Include="Migrations\201605041611599_events.cs" />
-    <Compile Include="Migrations\201605041611599_events.Designer.cs">
-      <DependentUpon>201605041611599_events.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605041618173_performers.cs" />
-    <Compile Include="Migrations\201605041618173_performers.Designer.cs">
-      <DependentUpon>201605041618173_performers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605041627216_perfupdate.cs" />
-    <Compile Include="Migrations\201605041627216_perfupdate.Designer.cs">
-      <DependentUpon>201605041627216_perfupdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605041657245_perfedit.cs" />
-    <Compile Include="Migrations\201605041657245_perfedit.Designer.cs">
-      <DependentUpon>201605041657245_perfedit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605051903341_realcontroller.cs" />
-    <Compile Include="Migrations\201605051903341_realcontroller.Designer.cs">
-      <DependentUpon>201605051903341_realcontroller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605061826043_controller2.cs" />
-    <Compile Include="Migrations\201605061826043_controller2.Designer.cs">
-      <DependentUpon>201605061826043_controller2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605062051564_RemovedVMModel.cs" />
-    <Compile Include="Migrations\201605062051564_RemovedVMModel.Designer.cs">
-      <DependentUpon>201605062051564_RemovedVMModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605101646449_eventscontroller.cs" />
-    <Compile Include="Migrations\201605101646449_eventscontroller.Designer.cs">
-      <DependentUpon>201605101646449_eventscontroller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605102030331_eventscontroller1.cs" />
-    <Compile Include="Migrations\201605102030331_eventscontroller1.Designer.cs">
-      <DependentUpon>201605102030331_eventscontroller1.cs</DependentUpon>
+    <Compile Include="Migrations\201605121906173_InitialCreation.cs" />
+    <Compile Include="Migrations\201605121906173_InitialCreation.Designer.cs">
+      <DependentUpon>201605121906173_InitialCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -296,9 +265,11 @@
     <Content Include="Views\Events\Create.cshtml" />
     <Content Include="Views\Performers\Details.cshtml" />
     <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -309,32 +280,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605041611599_events.resx">
-      <DependentUpon>201605041611599_events.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605041618173_performers.resx">
-      <DependentUpon>201605041618173_performers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605041627216_perfupdate.resx">
-      <DependentUpon>201605041627216_perfupdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605041657245_perfedit.resx">
-      <DependentUpon>201605041657245_perfedit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605051903341_realcontroller.resx">
-      <DependentUpon>201605051903341_realcontroller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605061826043_controller2.resx">
-      <DependentUpon>201605061826043_controller2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605062051564_RemovedVMModel.resx">
-      <DependentUpon>201605062051564_RemovedVMModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605101646449_eventscontroller.resx">
-      <DependentUpon>201605101646449_eventscontroller.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605102030331_eventscontroller1.resx">
-      <DependentUpon>201605102030331_eventscontroller1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605121906173_InitialCreation.resx">
+      <DependentUpon>201605121906173_InitialCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -122,7 +122,7 @@ namespace GrapsTrack.Models
         public string InfoLink { get; set; }
         public IEnumerable<EventVm> PossibleEvents { get; set; } = new List<EventVm>();
     }
-
+    
     public class CreatePerformerVm
     {
         public int Id { get; set; }
@@ -148,6 +148,16 @@ namespace GrapsTrack.Models
 
         public int SelectedPerformerId { get; set; }
     }
+
+    public class EditEventVm
+    {
+        public int Id { get; set; }
+        public int PerformerId { get; set; }
+        public string Title { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+    }
+
 
     public class EditPerformerVm
     {

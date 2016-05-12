@@ -7,13 +7,13 @@ namespace GrapsTrack.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class eventscontroller : IMigrationMetadata
+    public sealed partial class InitialCreation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(eventscontroller));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreation));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605101646449_eventscontroller"; }
+            get { return "201605121906173_InitialCreation"; }
         }
         
         string IMigrationMetadata.Source
