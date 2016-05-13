@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201605121906173_InitialCreation.Designer.cs">
       <DependentUpon>201605121906173_InitialCreation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605130426275_EditMethods.cs" />
+    <Compile Include="Migrations\201605130426275_EditMethods.Designer.cs">
+      <DependentUpon>201605130426275_EditMethods.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -248,16 +252,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\EventsTemp\Create.cshtml" />
-    <Content Include="Views\EventsTemp\Delete.cshtml" />
-    <Content Include="Views\EventsTemp\Details.cshtml" />
-    <Content Include="Views\EventsTemp\Edit.cshtml" />
-    <Content Include="Views\EventsTemp\Index.cshtml" />
-    <Content Include="Views\PerformersTemp\Create.cshtml" />
-    <Content Include="Views\PerformersTemp\Delete.cshtml" />
-    <Content Include="Views\PerformersTemp\Details.cshtml" />
-    <Content Include="Views\PerformersTemp\Edit.cshtml" />
-    <Content Include="Views\PerformersTemp\Index.cshtml" />
     <Content Include="Views\Performers\Index.cshtml" />
     <Content Include="Views\Performers\Create.cshtml" />
     <Content Include="Views\Performers\Edit.cshtml" />
@@ -266,6 +260,8 @@
     <Content Include="Views\Performers\Details.cshtml" />
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Performers\Delete.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +278,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605121906173_InitialCreation.resx">
       <DependentUpon>201605121906173_InitialCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605130426275_EditMethods.resx">
+      <DependentUpon>201605130426275_EditMethods.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -60,24 +61,42 @@ namespace GrapsTrack.Controllers
             return View(model);
         }
 
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [HttpGet]
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var performer = db.Performers.Find(id);
+            Performer performer = db.Performers.Find(id);
             if (performer == null)
             {
                 return HttpNotFound();
             }
-            return View();
+            var model = new EditPerformerVm();
+            model.Id = performer.Id;
+            model.FirstName = performer.FirstName;
+            model.LastName = performer.LastName;
+            model.InfoLink = performer.InfoLink;
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditPerformerVm model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var existingperforermer = db.Performers.Find(model.Id);
+                existingperforermer.Id = model.Id;
+                existingperforermer.FirstName = model.FirstName;
+                existingperforermer.LastName = model.LastName;
+                existingperforermer.InfoLink = model.InfoLink;
+
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
 
@@ -91,39 +110,36 @@ namespace GrapsTrack.Controllers
             return View(performer);
         }
 
-        //public ActionResult Details(int ? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-
-        //    Performer performer = db.Performers.Find(id);
-        //    if (performer == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(performer);
-        //}
-
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Performer performer = db.Performers.Find(id);
+            if (performer == null)
+            {
+                return HttpNotFound();
+            }
+
+            var model = new PerformerVm();
+            model.Id = performer.Id;
+            model.FirstName = performer.FirstName;
+            model.LastName = performer.LastName;
+            model.InfoLink = performer.InfoLink;
+            return View(model);
         }
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Performer performer = db.Performers.Find(id);
+            db.Performers.Remove(performer);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
+
     }
 }
+

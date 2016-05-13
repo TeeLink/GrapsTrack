@@ -73,7 +73,7 @@ namespace GrapsTrack.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             Event _event = db.Events.Find(id);
             if (_event == null)
             {
@@ -82,6 +82,7 @@ namespace GrapsTrack.Controllers
             return View(_event);
         }
 
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -93,7 +94,23 @@ namespace GrapsTrack.Controllers
             {
                 return HttpNotFound();
             }
-            return View(id);
+
+            var model = new EditEventVm();
+            model.Date = @event.Date;
+            model.Id = @event.Id;
+            model.City = @event.City;
+            model.State = @event.State;
+            model.Title = @event.Title;
+            model.Performers = db.Performers.ToList().Select(x => new PerformerVm()
+            {
+                FirstName = x.FirstName,
+                Id = x.Id,
+                LastName = x.LastName,
+                IsChecked = @event.Performers.Contains(x),
+                InfoLink = x.InfoLink,
+            }).ToList();
+
+            return View(model);
         }
 
         // POST: Events/Edit/5
@@ -102,33 +119,52 @@ namespace GrapsTrack.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(model).State = EntityState.Modified;
+                var existingEvent = db.Events.Find(model.Id);
+
+                existingEvent.Title = model.Title;
+                existingEvent.City = model.City;
+                existingEvent.State = model.State;
+                existingEvent.Date = model.Date;
+
+                existingEvent.Performers.Clear();
+                var checkedPerformersId = model.Performers.Where(x => x.IsChecked).Select(x => x.Id);
+                var dbperformers = db.Performers.Where(x => checkedPerformersId.Contains(x.Id)).ToList();
+                dbperformers.ForEach(p=> existingEvent.Performers.Add(p));
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
         }
 
-        // GET: Events/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Event @event = db.Events.Find(id);
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+            var model = new EventVm();
+            model.Id = @event.Id;
+            model.City = @event.City;
+            model.State = @event.State;
+            model.Title = @event.Title;
+            return View(model);
         }
 
-        // POST: Events/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        // POST: EventsTemp/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Event @event = db.Events.Find(id);
+            db.Events.Remove(@event);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
