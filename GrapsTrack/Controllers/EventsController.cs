@@ -79,7 +79,23 @@ namespace GrapsTrack.Controllers
             {
                 return HttpNotFound();
             }
-            return View(_event);
+
+            var model = new EventVm();
+            model.Id = _event.Id;
+            model.Title = _event.Title;
+            model.City = _event.City;
+            model.State = _event.State;
+            model.Date = _event.Date;
+            model.Performers = _event.Performers.Select(p => new PerformerVm()
+            {
+                Id = p.Id,
+                FirstName = p.FirstName,
+                LastName = p.LastName,
+                InfoLink = p.InfoLink,
+            
+            }).ToList();
+
+            return View(model);
         }
 
         [HttpGet]
@@ -153,6 +169,7 @@ namespace GrapsTrack.Controllers
             model.City = @event.City;
             model.State = @event.State;
             model.Title = @event.Title;
+            
             return View(model);
         }
 

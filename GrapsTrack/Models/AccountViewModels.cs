@@ -182,7 +182,6 @@ namespace GrapsTrack.Models
     public class DetailEventVm
     {
         public int Id { get; set; }
-        public int PerformerId { get; set; }
         public string Title { get; set; }
         public string City { get; set; }
         public string State { get; set; }
@@ -195,17 +194,12 @@ namespace GrapsTrack.Models
     public class EventVm
     {
         public int Id { get; set; }
-        public int PerformerId { get; set; }
-        [Required]
         public string Title { get; set; }
-        [Required]
         public DateTime Date { get; set; }
-        [Required]
         public string City { get; set; }
-        [Required]
         public string State { get; set; }
         public Promotion Promotion { get; set; }
 
-        public IEnumerable<PerformerVm> PossiblePerformers { get; set; } = new List<PerformerVm>();
+        public List<PerformerVm> Performers { get; set; } = new List<PerformerVm>();
     }
 }
