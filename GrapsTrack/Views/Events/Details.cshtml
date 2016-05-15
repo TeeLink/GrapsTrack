@@ -14,16 +14,24 @@
     <p>
         @Html.DisplayFor(model => model.City), @Html.DisplayFor(model => model.State)
     </p>
+    <br />
+    <h4>
+        FEATURING:
+    </h4>
+
     <p>
         @foreach (var performer in Model.Performers)
         {
         <p>
-            @Html.DisplayFor(model => performer.FirstName) @Html.DisplayFor(model => performer.LastName)
+            @Html.ActionLink((performer.FirstName) + " " + (performer.LastName), "Details", "Performers", new { id = performer.Id }, null)
         </p>
         }
         </p>
     </div>
+    <br />
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+        <button>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+        </button>
     </p>
 

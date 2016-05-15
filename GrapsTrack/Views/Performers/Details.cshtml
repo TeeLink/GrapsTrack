@@ -12,13 +12,13 @@
     <dl class="dl-horizontal">
 
             <h3>
-                @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+                <td>
+                    <a href="@Model.InfoLink">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</a>
+                </td>
             </h3>
         
 
-        <td>
-            <a href="@Model.InfoLink">Profile</a>
-        </td>
+        
 
 
     </dl>
