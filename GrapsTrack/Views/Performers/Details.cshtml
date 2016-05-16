@@ -3,26 +3,21 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
+@*<h2>Details</h2>*@
 <div>
-    <h4>Performer</h4>
-    <hr />
+    @*<h4>Performer</h4>
+    <hr/>*@
     <dl class="dl-horizontal">
-
-            <h3>
-                <td>
-                    <a href="@Model.InfoLink">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</a>
-                </td>
-            </h3>
-        
-
-        
-
-
+        <h3>
+            <td>
+                <a href="@Model.InfoLink">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</a>
+            </td>
+        </h3>
     </dl>
 </div>
+<br />
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) 
+    <button>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    </button>
 </p>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
@@ -127,9 +128,11 @@ namespace GrapsTrack.Models
     {
         public int Id { get; set; }
         public int EventId { get; set; }
-        [Required]
+        [DisplayName("First Name")]
         public string FirstName { get; set; }
+        [DisplayName("Last Name")]
         public string LastName { get; set; }
+        [DisplayName("Information Link")]
         public string InfoLink { get; set; }
         public SelectList Events { get; set; }
 
