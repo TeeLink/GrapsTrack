@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Performers</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,11 +13,12 @@
 @foreach (var item in Model.OrderBy(x => x.FirstName))
 {
     <div class="row col-lg-4 col-md-6">
-        <div class="event">
+        <div class="link event">
             <h2>
-                @Html.ActionLink(item.FirstName + " " + item.LastName, "Details", new { id = item.Id })
+                @Html.ActionLink(item.FirstName + " " + item.LastName, "Details", new {id = item.Id})
             </h2>
         </div>
     </div>
 }
+
 

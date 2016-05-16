@@ -46,7 +46,18 @@ textarea {
     text-shadow: 1px 1px white;
 }
 
-.bodytext {
+a:link {
     color:black;
     text-shadow: 2px 2px white;
+}
+
+a:visited {
+    color:black;
+    text-shadow: 2px 2px white;
+}
+
+
+
+footer {
+    clear: both;
 }

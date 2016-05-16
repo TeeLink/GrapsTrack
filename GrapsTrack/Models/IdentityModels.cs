@@ -26,6 +26,7 @@ namespace GrapsTrack.Models
         public string State { get; set; }
 
         public virtual ICollection<Performer> Following { get; set; } = new List<Performer>();
+
     }
 
 }
