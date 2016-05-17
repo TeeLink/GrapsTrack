@@ -82,6 +82,14 @@ namespace GrapsTrack.Models
         [Display(Name = "Confirm password")]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Display(Name = "Date of Birth")]
+        public DateTime DateOfBirth { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
     }
 
     public class ResetPasswordViewModel
@@ -122,6 +130,10 @@ namespace GrapsTrack.Models
         public IEnumerable<EventVm> PossibleEvents { get; set; } = new List<EventVm>();
         public bool IsChecked { get; set; }
         public string FullName => FirstName + " " + LastName;
+        public string Height { get; set; }
+        public int Weight { get; set; }
+        public int Age { get; set; }
+        public string PhotoLink { get; set; }
     }
     
     public class CreatePerformerVm
@@ -134,6 +146,10 @@ namespace GrapsTrack.Models
         public string LastName { get; set; }
         [DisplayName("Information Link")]
         public string InfoLink { get; set; }
+        public string Height { get; set; }
+        public int Weight { get; set; }
+        public int Age { get; set; }
+        public string PhotoLink { get; set; }
         public SelectList Events { get; set; }
 
         public int SelectedEventId { get; set; }
@@ -168,8 +184,12 @@ namespace GrapsTrack.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Height { get; set; }
+        public int Weight { get; set; }
+        public int Age { get; set; }
         public string InfoLink { get; set; }
-        
+        public string PhotoLink { get; set; }
+
     }
 
     public class DetailPerformerVm

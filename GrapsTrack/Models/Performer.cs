@@ -12,7 +12,12 @@ namespace GrapsTrack.Models
         [Required]
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Height { get; set; }
+        public int Weight { get; set; }
+        public int Age { get; set; }
         public string InfoLink { get; set; }
+        public string PhotoLink { get; set; }
+
 
         public virtual ICollection<Event> Events { get; set; } = new List<Event>();
         public virtual ICollection<User> Followers { get; set; } = new List<User>(); 

@@ -20,7 +20,11 @@ namespace GrapsTrack.Controllers
                 Id = x.Id,
                 FirstName = x.FirstName,
                 LastName = x.LastName,
-                InfoLink = x.InfoLink
+                InfoLink = x.InfoLink,
+                Age = x.Age,
+                Height = x.Height,
+                Weight = x.Weight,
+                PhotoLink = x.PhotoLink
 
             });
 
@@ -47,6 +51,10 @@ namespace GrapsTrack.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     InfoLink = model.InfoLink,
+                    Age = model.Age,
+                    Height = model.Height,
+                    Weight = model.Weight,
+                    PhotoLink = model.PhotoLink
                 };
 
                 db.Performers.Add(createperformer);
@@ -78,6 +86,10 @@ namespace GrapsTrack.Controllers
             model.FirstName = performer.FirstName;
             model.LastName = performer.LastName;
             model.InfoLink = performer.InfoLink;
+            model.Age = performer.Age;
+            model.Height = performer.Height;
+            model.Weight = performer.Weight;
+            model.PhotoLink = performer.PhotoLink;
             return View(model);
         }
 
@@ -92,6 +104,10 @@ namespace GrapsTrack.Controllers
                 existingperforermer.FirstName = model.FirstName;
                 existingperforermer.LastName = model.LastName;
                 existingperforermer.InfoLink = model.InfoLink;
+                existingperforermer.Age = model.Age;
+                existingperforermer.Height = model.Height;
+                existingperforermer.Weight = model.Weight;
+                existingperforermer.PhotoLink = model.PhotoLink;
 
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -127,6 +143,10 @@ namespace GrapsTrack.Controllers
             model.FirstName = performer.FirstName;
             model.LastName = performer.LastName;
             model.InfoLink = performer.InfoLink;
+            model.Age = performer.Age;
+            model.Height = performer.Height;
+            model.Weight = performer.Weight;
+            model.PhotoLink = performer.PhotoLink;
             return View(model);
         }
 

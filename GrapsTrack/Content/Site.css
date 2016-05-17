@@ -27,9 +27,26 @@ textarea {
 
 .event {
     text-align: center;
+    font-weight: bold;
     border-style: solid;
+    border-color: blue;
+    border-radius: 500px;
     margin-bottom: 30px;
+    margin: 20px;
+    background-image: url(http://i.imgur.com/OzSwvTL.png);
+    -webkit-filter: grayscale(30%);
 }
+
+.pic {
+    border-style: solid;
+    border-color: blue;
+    background-size: cover;
+    width: 300px;
+}
+
+    .pic img {
+        width: 100%;
+    }
 
 .jumbotron {
     margin-bottom: 0px;
@@ -42,22 +59,33 @@ textarea {
     text-emphasis-color: white;
 }
 
-.headtext{
-    text-shadow: 1px 1px white;
+.headtext {
+    color: blue;
+    font-weight: bold;
+    text-shadow: 2px 2px gray;
 }
 
 a:link {
-    color:black;
-    text-shadow: 2px 2px white;
+    color: blue;
+    font-weight: bold;
+    text-shadow: 1px 1px white;
+    text-decoration: none;
 }
 
 a:visited {
-    color:black;
-    text-shadow: 2px 2px white;
+    color: blue;
+    text-shadow: 1px 1px white;
+    text-decoration: none;
 }
 
-
+.perfhead {
+    text-align: center;
+}
 
 footer {
     clear: both;
+}
+
+.details {
+    color: white;
 }
