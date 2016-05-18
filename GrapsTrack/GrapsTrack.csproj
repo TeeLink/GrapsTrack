@@ -189,6 +189,14 @@
     <Compile Include="Migrations\201605161914188_MorePerformerProps.Designer.cs">
       <DependentUpon>201605161914188_MorePerformerProps.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605172221173_MoreEventProps.cs" />
+    <Compile Include="Migrations\201605172221173_MoreEventProps.Designer.cs">
+      <DependentUpon>201605172221173_MoreEventProps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605172232091_MoreEventsProps.cs" />
+    <Compile Include="Migrations\201605172232091_MoreEventsProps.Designer.cs">
+      <DependentUpon>201605172232091_MoreEventsProps.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -208,6 +216,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\indywatch.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -286,6 +295,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605161914188_MorePerformerProps.resx">
       <DependentUpon>201605161914188_MorePerformerProps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605172221173_MoreEventProps.resx">
+      <DependentUpon>201605172221173_MoreEventProps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605172232091_MoreEventsProps.resx">
+      <DependentUpon>201605172232091_MoreEventsProps.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

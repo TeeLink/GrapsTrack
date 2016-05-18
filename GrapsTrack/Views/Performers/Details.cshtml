@@ -1,12 +1,12 @@
-﻿@model GrapsTrack.Models.Performer
+﻿@model GrapsTrack.Models.PerformerVm
 
 @{
     ViewBag.Title = "Details";
 }
-@*<h2>Details</h2>*@
+<br/>
+
+
 <div>
-    @*<h4>Performer</h4>
-        <hr/>*@
     <h1 class="perfhead">
         <td>
             <a href="@Model.InfoLink">@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</a>
@@ -28,8 +28,16 @@
                     Height:  @Html.DisplayFor(model => model.Height)
                 </h4>
                 <h4>
-                    Weight:   @Html.DisplayFor(model => model.Weight) lbs.
+                    Weight: @Html.DisplayFor(model => model.Weight) lbs.
                 </h4>
+                <br />
+                <h4>@Html.DisplayFor(model => model.FirstName)'s Upcoming Events:</h4>
+                @foreach (var _event in Model.PossibleEvents)
+                {
+                    <p>
+                        @Html.ActionLink((_event.Title), "Details", "Events", new { id = _event.Id }, null)
+                    </p>
+                }
             </div>
         </div>
     </dl>

@@ -9,15 +9,17 @@
 
 </head>
 <body >
-    <div class="navbar navbar-inverse navbar-fixed-top jumbotron">
+    <div class="navbar navbar-inverse navbar-fixed-top jumbotron headtext>
         <div class="container headtext">
             <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Graps Track", "Index", "Events", new { area = "" }, new { @class = "navbar-brand" })
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="head">
+                    @Html.ActionLink("INDY WATCH", "Index", "Events", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -34,7 +36,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Graps Track</p>
+            <p>&copy; @DateTime.Now.Year - Indy Watch</p>
         </footer>
     </div>
 

@@ -5,22 +5,26 @@
 }
 
 <h3>Upcoming shows</h3>
-    <br />
+<br />
 @foreach (var item in Model.OrderBy(x => x.Date))
 {
     <div class="event">
-        <h1>
-            <p class="bodytext">
-                @Html.ActionLink(item.Title, "Details", new {id = item.Id})
-            </p>
-        </h1>
-        <div class="details">
-            <p>
-                @Html.DisplayFor(modelItem => item.Date)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.State)
-            </p>
-        </div>
+        <a href="@Url.Action("Details", new {id = item.Id})">
+
+            <h1>
+                <p class="bodytext test">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </p>
+            </h1>
+            <div class="details">
+                <p>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </p>
+                <p>
+                    @Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.State)
+                </p>
+            </div>
+
+        </a>
     </div>
 }

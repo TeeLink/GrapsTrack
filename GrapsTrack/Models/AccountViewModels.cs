@@ -162,6 +162,7 @@ namespace GrapsTrack.Models
         public string Title { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        public string Flyer { get; set; }
         public DateTime Date { get; set; }
         public SelectList Performers { get; set; }
 
@@ -174,6 +175,7 @@ namespace GrapsTrack.Models
         public string Title { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        public string Flyer { get; set; }
         public DateTime Date { get; set; }
         public List<PerformerVm> Performers { get; set; } = new List<PerformerVm>();
     }
@@ -208,6 +210,7 @@ namespace GrapsTrack.Models
         public string Title { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        public string Flyer { get; set; }
         public DateTime Date { get; set; }
         public SelectList Performers { get; set; }
 
@@ -221,6 +224,7 @@ namespace GrapsTrack.Models
         public DateTime Date { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        public string Flyer { get; set; }
         public Promotion Promotion { get; set; }
 
         public List<PerformerVm> Performers { get; set; } = new List<PerformerVm>();

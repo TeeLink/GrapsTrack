@@ -1,8 +1,11 @@
-﻿body {
+﻿@import url(https://fonts.googleapis.com/css?family=Rubik:400,500italic|Ceviche+One|Racing+Sans+One&subset=latin,latin-ext);
+
+body {
     padding-top: 150px;
     padding-bottom: 20px;
     background-image: url("http://i.imgur.com/BLD80Rd.jpg");
     background-color: #cccccc;
+    font-family: 'Racing Sans One', cursive;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -27,26 +30,37 @@ textarea {
 
 .event {
     text-align: center;
-    font-weight: bold;
     border-style: solid;
     border-color: blue;
     border-radius: 500px;
+    font-family: 'Racing Sans One', cursive;
     margin-bottom: 30px;
     margin: 20px;
     background-image: url(http://i.imgur.com/OzSwvTL.png);
-    -webkit-filter: grayscale(30%);
+    -webkit-filter: grayscale(1%);
 }
 
 .pic {
     border-style: solid;
     border-color: blue;
     background-size: cover;
-    width: 300px;
+    width: 250px;
 }
 
     .pic img {
         width: 100%;
     }
+
+.navbar-inverse .navbar-brand {
+    font-size: 3rem;
+    color: blue;
+    text-shadow: 1px 1px white;
+}
+
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-nav > li > a:focus {
+    color: blue;
+    text-shadow: 1px 1px white;
+}
 
 .jumbotron {
     margin-bottom: 0px;
@@ -61,31 +75,46 @@ textarea {
 
 .headtext {
     color: blue;
-    font-weight: bold;
     text-shadow: 2px 2px gray;
+    font-family: 'Racing Sans One', cursive;
 }
 
 a:link {
     color: blue;
-    font-weight: bold;
     text-shadow: 1px 1px white;
+    font-family: 'Racing Sans One', cursive;
     text-decoration: none;
 }
 
 a:visited {
     color: blue;
     text-shadow: 1px 1px white;
+    font-family: 'Racing Sans One', cursive;
     text-decoration: none;
 }
 
+.extra {
+    font-family: 'Racing Sans One', cursive;
+}
+
 .perfhead {
+    font-size: 4rem;
     text-align: center;
+    color: blue;
+    text-shadow: 1px 1px white;
+    font-family: 'Racing Sans One', cursive;
 }
 
 footer {
     clear: both;
 }
 
+.test {
+    font-weight: bold;
+    font-family: 'Racing Sans One', cursive;
+}
+
 .details {
     color: white;
+    text-shadow: none;
 }

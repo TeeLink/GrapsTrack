@@ -110,20 +110,45 @@ namespace GrapsTrack.Controllers
                 existingperforermer.PhotoLink = model.PhotoLink;
 
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Performers", new { Id = model.Id });
             }
+
             return View(model);
         }
 
 
         public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             Performer performer = db.Performers.Find(id);
             if (performer == null)
             {
                 return HttpNotFound();
             }
-            return View(performer);
+
+            var model = new PerformerVm();
+            model.Id = performer.Id;
+            model.FirstName = performer.FirstName;
+            model.LastName = performer.LastName;
+            model.InfoLink = performer.InfoLink;
+            model.Age = performer.Age;
+            model.Height = performer.Height;
+            model.Weight = performer.Weight;
+            model.PhotoLink = performer.PhotoLink;
+            model.PossibleEvents = performer.Events.Select(e => new EventVm()
+            {
+                Id = e.Id,
+                Title = e.Title,
+                Date = e.Date,
+                City = e.City,
+                State = e.State,
+            }).ToList();
+
+            return View(model);
         }
 
         public ActionResult Delete(int? id)

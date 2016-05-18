@@ -23,11 +23,26 @@ namespace GrapsTrack.Controllers
                 Title = x.Title,
                 City = x.City,
                 State = x.State,
+                Flyer = x.Flyer,
                 Date = x.Date
             });
 
             return View(_event);
         }
+
+        //[HttpGet]
+        //public ActionResult Index(string searchString)
+        //{
+        //    var events = from e in db.Events
+        //        select e;
+
+        //    if (!String.IsNullOrEmpty(searchString))
+        //    {
+        //        events = events.Where(s => s.Title.StartsWith(searchString));
+        //    }
+
+        //    return View();
+        //}
 
         [HttpGet]
         public ActionResult Create()
@@ -50,7 +65,8 @@ namespace GrapsTrack.Controllers
                     Title = model.Title,
                     City = model.City,
                     State = model.State,
-                    Date = model.Date
+                    Date = model.Date,
+                    Flyer = model.Flyer,
                 };
 
                 db.Events.Add(createevent);
@@ -85,6 +101,7 @@ namespace GrapsTrack.Controllers
             model.Title = _event.Title;
             model.City = _event.City;
             model.State = _event.State;
+            model.Flyer = _event.Flyer;
             model.Date = _event.Date;
             model.Performers = _event.Performers.Select(p => new PerformerVm()
             {
@@ -116,6 +133,7 @@ namespace GrapsTrack.Controllers
             model.Id = @event.Id;
             model.City = @event.City;
             model.State = @event.State;
+            model.Flyer = @event.Flyer;
             model.Title = @event.Title;
             model.Performers = db.Performers.ToList().Select(x => new PerformerVm()
             {
@@ -140,6 +158,7 @@ namespace GrapsTrack.Controllers
                 existingEvent.Title = model.Title;
                 existingEvent.City = model.City;
                 existingEvent.State = model.State;
+                existingEvent.Flyer = model.Flyer;
                 existingEvent.Date = model.Date;
 
                 existingEvent.Performers.Clear();
@@ -148,7 +167,7 @@ namespace GrapsTrack.Controllers
                 dbperformers.ForEach(p=> existingEvent.Performers.Add(p));
 
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Events", new { Id = model.Id });
             }
             return View(model);
         }
@@ -168,6 +187,7 @@ namespace GrapsTrack.Controllers
             model.Id = @event.Id;
             model.City = @event.City;
             model.State = @event.State;
+            model.Flyer = @event.Flyer;
             model.Title = @event.Title;
             
             return View(model);

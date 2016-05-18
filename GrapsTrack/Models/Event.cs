@@ -17,6 +17,8 @@ namespace GrapsTrack.Models
         public string City { get; set; }
         [Required]
         public string State { get; set; }
+        public string Flyer { get; set; }
+
         public virtual Promotion Promotion { get; set; }
         public virtual ICollection<Performer> Performers { get; set; } = new List<Performer>(); 
     }
